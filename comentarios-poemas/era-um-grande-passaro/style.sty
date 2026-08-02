@@ -1,0 +1,151 @@
+\ProvidesPackage{style}
+
+% Required packages
+\RequirePackage{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage{amsmath, amssymb}
+\RequirePackage{titlesec}
+\RequirePackage{url, hyperref}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{minted}
+\RequirePackage{booktabs}
+\RequirePackage{paralist} 
+
+\def\figurename{Fig.}
+\def\tablename{Tabela}
+
+% Page layout
+\geometry{a4paper, margin=1in}
+
+% Color definitions
+\definecolor{whitesmoke}{rgb}{0.96, 0.96, 0.96}
+\definecolor{ghostwhite}{rgb}{0.97, 0.97, 1.0}
+
+% Listing theme 
+\usemintedstyle{pastie}
+
+% Cover
+\newcommand{\cover}[6]{
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{2cm}
+
+      {\Huge\bfseries #1\\[0.6em]}
+      {\Large #2\\} % Seção (Comentários de Poemas, Contos, etc.)
+      \vfill
+
+      {\Large #3\\} % Título da obra
+      {\large #4\\} % Autor da obra
+      \textit{#5}   % Data
+
+      \vfill
+
+      \textit{
+        Material produzido para o projeto \emph{#1}. \\
+        Código-fonte disponível em: \\
+        \href{#6}{\textcolor{darkgray}{#6}}
+      }
+
+    \end{center}
+  \end{titlepage}
+  }
+
+% Question counter
+\newcounter{questioncounter}
+\setcounter{questioncounter}{0}
+\newcounter{subquestioncounter}[questioncounter]
+
+% Question environment with counter
+\newcommand{\question}[2][]{%
+	\vspace{1em}%
+	\noindent
+	\if\relax\detokenize{#1}\relax
+		\stepcounter{questioncounter}%
+		\textbf{\thequestioncounter.}%
+	\else
+		\textbf{#1.}%
+	\fi
+	\ #2
+	\vspace{0.5em}
+	\newline
+}
+
+% Sub-question environment
+\newcommand{\subquestion}[1]{
+	\stepcounter{subquestioncounter}
+	\vspace{0.5em}
+	\noindent\textbf{(\alph{subquestioncounter})} #1
+	\vspace{0.5em}
+	\newline
+}
+
+% Answer environment
+\newcommand{\answer}[1]{
+	\vspace{0.5em}
+	\noindent\textbf{Sobre:}\\
+	\vspace*{-2em}
+	\begin{quote}
+		#1
+	\end{quote}
+}
+
+% Demonstration environment
+\newcommand{\demonstration}[1]{
+	\vspace{0.5em}
+	\noindent\textbf{Resposta:}\\
+	\vspace*{-2em}
+	\begin{quote}
+		#1
+		\hfill $\square$
+	\end{quote}
+}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+% Poemas
+\RequirePackage{verse}
+\RequirePackage{xcolor}
+\RequirePackage{lineno}
+
+\definecolor{poemgray}{RGB}{80, 80, 80}
+
+\newcommand{\poemreference}{}
+
+\newenvironment{poema}[3]
+{
+  \renewcommand{\poemreference}{#3}
+
+  \begin{center}
+    {\LARGE\bfseries #1\par}
+    \vspace{0.5em}
+    {\large\itshape #2\par}
+    \vspace{2em}
+
+    \begin{minipage}{0.70\textwidth}
+      \raggedright
+      \itshape
+      \color{poemgray}
+      \setlength{\parindent}{0pt}
+
+      \internallinenumbers
+}
+{
+      \nolinenumbers
+
+    \end{minipage}
+
+    \vspace{1.5em}
+
+    \begin{minipage}{0.70\textwidth}
+      \raggedright
+      \hfill
+      {\normalfont\small\color{black}\poemreference}
+    \end{minipage}
+
+  \end{center}
+}

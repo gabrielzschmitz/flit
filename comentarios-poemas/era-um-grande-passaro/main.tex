@@ -1,0 +1,55 @@
+\documentclass{article}
+
+% Codificação e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+
+% Layout
+\usepackage[a4paper, margin=2.5cm]{geometry}
+
+% Estilo personalizado
+\usepackage{style}
+\usepackage{pdfpages}
+\usepackage{verse}
+\usepackage{xcolor}
+\usepackage{lineno}
+
+% Matemática
+\usepackage{amsmath,amssymb,amsthm}
+
+% Links e referências
+\usepackage{url}
+\usepackage{hyperref}
+
+% Tabelas
+\usepackage{array}
+\usepackage{paralist}
+
+% Bibliografia
+\usepackage[
+    style=numeric,
+    sorting=none,
+    maxbibnames=10
+]{biblatex}
+
+\addbibresource{ref.bib}
+
+\begin{document}
+
+\cover
+    {Formação Literária}        % Projeto
+    {Comentários de Poemas}     % Sessão
+    {Era um Grande Pássaro}     % Título
+    {Augusto Frederico Schmidt} % Autor
+    {30/07/2026}                % Data
+    {https://github.com/gabrielzschmitz/flit/tree/main/comentarios-poemas/era-um-grande-passaro}
+
+\input{./sections/01-introducao.tex}
+\input{./sections/02-texto.tex}
+\input{./sections/03-analise.tex}
+
+\newpage
+\printbibliography[title=Referências]
+
+\end{document}
