@@ -149,3 +149,20 @@
 
   \end{center}
 }
+
+\newenvironment{poemquote}[1]
+{
+  \begin{center}
+    \begin{minipage}{0.70\textwidth}
+      \raggedright
+      \itshape
+      \color{poemgray}
+      \setlength{\parindent}{0pt}
+      \internallinenumbers
+      \setcounter{linenumber}{#1}
+}
+{
+  \nolinenumbers
+    \end{minipage}
+  \end{center}
+}
