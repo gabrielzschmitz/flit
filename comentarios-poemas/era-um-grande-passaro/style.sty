@@ -150,16 +150,16 @@
   \end{center}
 }
 
-\newenvironment{poemquote}[1]
+\newenvironment{poemquote}[2][0.70\textwidth]
 {
   \begin{center}
-    \begin{minipage}{0.70\textwidth}
+    \begin{minipage}{#1}
       \raggedright
       \itshape
       \color{poemgray}
       \setlength{\parindent}{0pt}
       \internallinenumbers
-      \setcounter{linenumber}{#1}
+      \setcounter{linenumber}{#2}
 }
 {
   \nolinenumbers
