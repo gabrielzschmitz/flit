@@ -1,6 +1,6 @@
 # FLit
 
-<img align="right" width="192px" src="./icons/logo.svg" alt="FLit Logo">
+<img align="right" width="192px" src="./resources/logo.svg" alt="FLit Logo">
 
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY%204.0-lightgreen" alt="Licença"></a>
 <a href="https://www.buymeacoffee.com/gabrielzschmitz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 20px !important;width: 87px;"></a>
@@ -23,7 +23,7 @@ Cada estudo, independentemente da categoria, é um projeto LaTeX autônomo,
 compilado com **latexmk** (pdfLaTeX + BibTeX).
 
 <details>
-<summary>Compilar do código</summary>
+<summary>Compilar do código fonte</summary>
 
 ```bash
 latexmk -pdf -f -bibtex main.tex
